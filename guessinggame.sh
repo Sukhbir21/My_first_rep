@@ -1,17 +1,24 @@
-echo "how many files are there in directory"
-read option
+function guess {
+if [[ o -gt nof ]]
+then 
+	echo "too high"
+elif [[ o -lt nof ]]
+then 
+	echo "too low"
+else
+	echo "equal"
+fi
+}
 
-nof=$ ls | wc -l
-while [[ $option -gt 0 ]]
+chance=5
+while [[ $chance -gt 0 ]]
 do
-  if [[ $option -eq $nof ]]
-  then
-    echo "exactly same number"
-  else if [[ $option -gt $nof ]]
-  then 
-    echo "too high"
-  else
-    echo "to low"
+echo "Guess number of files:"
+read o
+nof=$(ls | wc -l)
+echo $nof
+guess 
+chance=$chance-1
 done
 
 
